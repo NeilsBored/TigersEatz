@@ -25,7 +25,6 @@ struct WalletView: View {
             VStack(alignment: .leading, spacing: 20) {
                 WalletTabsView(selectedTab: $selectedTab, walletBalance: $walletBalance)
                 WalletBalanceView(walletBalance: walletBalance, maxBalance: maxBalance, balanceSectionWidth: balanceSectionWidth)
-                DailyBudgetView(dailyBudgetAmount: $dailyBudgetAmount)
                 RecentTransactionsView(searchText: $searchText, showingFilterPicker: $showingFilterPicker, selectedFilter: $selectedFilter, recentTransactions: recentTransactions)
                 Spacer()
             }
@@ -203,51 +202,7 @@ struct WalletBalanceView: View {
     }
 }
 
-struct DailyBudgetView: View {
-    @Binding var dailyBudgetAmount: String
-    
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(.systemGray6))
-                .shadow(radius: 2)
-            VStack(alignment: .leading, spacing: 12) {
-                // Up chevron pointing to the CircularProgressView
-                HStack {
-                    Text("Daily Budget:")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.gray)
-                    Image(systemName: "chevron.up")
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                        .offset(x:6)
-                        .scaleEffect(2)
-                   
-                }
-                HStack(alignment: .center, spacing: 10) {
-                    TextField("Enter amount", text: $dailyBudgetAmount)
-                        .keyboardType(.decimalPad)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(width: 100)
-                    Button(action: {
-                        // Action to update the daily budget
-                    }) {
-                        Text("Save")
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 5)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(6)
-                    }
-                }
-            }
-            .padding()
-            .offset(x:56)
-        }
-        .frame(height: 10)
-    }
-}
+
 
 struct RecentTransactionsView: View {
     @Binding var searchText: String

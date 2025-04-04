@@ -336,6 +336,18 @@ struct HomeScreenView: View {
     @State private var restaurants: [Restaurant] = [
         Restaurant(
             id: 1,
+            imageName: "Halal",
+            title: "The Halal Shack",
+            address: "1 Bryan Circle",
+            capacity: .busy,
+            openStatus: "Open",
+            waitTime: 5,   // was "~8 min"
+            dietLabel: "Vegan Options",
+            costLabel: "$$",
+            borderColor: .yellow
+        ),
+        Restaurant(
+            id: 2,
             imageName: "Chicky",
             title: "Chick-fil-a",
             address: "201 Fernow Street",
@@ -347,7 +359,7 @@ struct HomeScreenView: View {
             borderColor: .red
         ),
         Restaurant(
-            id: 2,
+            id: 3,
             imageName: "Dish",
             title: "The Dish - DH",
             address: "511 Fort Hill Street",
@@ -359,7 +371,7 @@ struct HomeScreenView: View {
             borderColor: .orange
         ),
         Restaurant(
-            id: 3,
+            id: 4,
             imageName: "pod",
             title: "P.O.D. at Daniel",
             address: "113 Delta Epsilon Court",
@@ -371,17 +383,31 @@ struct HomeScreenView: View {
             borderColor: .green
         ),
         Restaurant(
-            id: 4,
+            id: 5,
             imageName: "bagel",
             title: "Einstein Bros.",
             address: "Hendrix Student Center",
-            capacity: .empty,
-            openStatus: "Closed",
-            waitTime: 0,  // was "N/A" (using 0 to indicate not applicable)
+            capacity: .kindaBusy,
+            openStatus: "Open",
+            waitTime: 5,
             dietLabel: "Vegan Options",
             costLabel: "$$",
             borderColor: .brown
+        ),
+        Restaurant(
+            id: 6,
+            imageName: "ClemsonDining",
+            title: "Schilletter - DH",
+            address: "1 Bryan Circle",
+            capacity: .notBusy,
+            openStatus: "Closing Soon",
+            waitTime: 9,
+            dietLabel: "Vegetarian",
+            costLabel: "$$",
+            borderColor: .orange
         )
+        
+        
     ]
     
     private var selectedRestaurantBorderColor: Color {
@@ -460,8 +486,8 @@ struct HomeScreenView: View {
                 }
                 .onAppear {
                     withAnimation(.linear(duration: 1)) {
-                        travelTime = 0.15
-                        classProgress = 0.68
+                        travelTime = 0.14
+                        classProgress = 0.11
                     }
                 }
 

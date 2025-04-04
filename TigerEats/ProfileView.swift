@@ -17,11 +17,37 @@ struct ProfileMenuView: View {
     @State private var OthersEnabled: Bool = false
 
     var body: some View {
+        
+        
         NavigationView {
-            VStack(alignment: .leading, spacing: 20) {
-                
+            VStack(alignment: .center, spacing: 10) {
                 WalletTabsView(selectedTab: $selectedTab, walletBalance: $walletBalance)
-                    .padding(.top)
+                    .offset(x:-6, y: -15)
+                    .toolbar {
+                        
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {
+                               
+                            }) {
+                                HStack {
+                                    Text("Back Home")
+                                }
+                            }
+                        }
+                    
+                        ToolbarItem(placement: .principal) {
+                            HStack(spacing: 8) {
+                                Image("Clemson")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(Color(red: 246/255, green: 103/255, blue: 51/255))
+                                Text("TigerEatz")
+                                    .font(.headline)
+                                    .foregroundColor(Color(red: 82/255, green: 45/255, blue: 128/255))
+                            }
+                        }
+                    }
                 
                 Form {
                     Section(header: Text("Profile Information")) {
@@ -39,7 +65,7 @@ struct ProfileMenuView: View {
                                 Text("Sean Johnson")
                                     .font(.headline)
                                     .foregroundColor(.gray)
-                                Text("email@example.com")
+                                Text("seanj@clemson.edu")
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
@@ -49,23 +75,56 @@ struct ProfileMenuView: View {
                     }
                     
                     Section(header: Text("Profile Settings")) {
-                        Toggle(isOn: $notificationsEnabled) {
-                            Text("Enable Notifications")
+                        HStack{
+                            Text("Edit Profile Information")
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.blue)
                         }
-                        Toggle(isOn: $darkModeEnabled) {
-                            Text("Dark Mode")
+                        HStack{
+                            Text("Favorites Settings")
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.blue)
                         }
-                        Toggle(isOn: $OthersEnabled) {
-                            Text("Others")
+                        HStack{
+                            Text("Payment Settings")
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.blue)
                         }
+                        HStack{
+                            Text("Subscriptions Settings")
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.blue)
+                        }
+                        
                     }
                         
                         Section(header: Text("App Settings")) {
-                            Text("Enable Notifications")
-                            Text("Enable Notifications")
-                            Text("Enable Notifications")
                             
+                            Toggle(isOn: $notificationsEnabled) {
+                                Text("Enable Notifications")
                                     
+                            }
+                            Toggle(isOn: $darkModeEnabled) {
+                                Text("Dark Mode")
+                            }
+                           // Toggle(isOn: $OthersEnabled) {
+                             //   Text("Others")
+                           // }
+                            HStack{
+                                Text("Notification Settings")
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.blue)
+                            }
+                            HStack{
+                                Text("Privacy Settings")
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.blue)
+                            }
+                            HStack{
+                                Text("Accessibility Settings")
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(.blue)
+                            }
                                 }
                         
                     
@@ -82,6 +141,8 @@ struct ProfileMenuView: View {
                             }
                         }
                     }
+                    
+                    
                 }
                
             }

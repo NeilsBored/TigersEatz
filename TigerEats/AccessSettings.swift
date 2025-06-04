@@ -1,5 +1,5 @@
 //
-//  AccessibilitySettingsView.swift
+//  AccessSettings.swift
 //  TigerEats
 //
 //  Created by Shane John on 3/9/25.

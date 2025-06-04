@@ -3,8 +3,10 @@ import SwiftUI
 struct WalletView: View {
     var body: some View {
         NavigationView {
-            Text("Wallet coming soon")
-                .navigationTitle("Wallet")
+            List {
+                NavigationLink("Sample Receipt", destination: ReceiptDetailView())
+            }
+            .navigationTitle("Wallet")
         }
     }
 }

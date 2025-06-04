@@ -33,12 +33,12 @@ struct RestaurantCard: View {
                 .cornerRadius(5)
                 .shadow(radius: 1)
 
-                NavigationLink(destination: HomeScreenView()) {
+                NavigationLink(destination: RestaurantProfileView(restaurant: restaurant)) {
                     Text("View Info")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
-                        .frame(width: 130, height: 35)
+                        .frame(width: UIScreen.main.bounds.width * 0.35, height: 35)
                         .background(Color.gray)
                         .cornerRadius(5)
                 }
